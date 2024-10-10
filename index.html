@@ -9,11 +9,17 @@
         <!-- shader -->
         <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
         <script src="shader-grid-glitch.js"></script>
+
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body style="margin: 0; overflow: hidden;">
+        <div class="arjs-loader">
+            <p>gifanimationtest</p>
+        </div>
+        
         <a-scene
-            vr-mode-ui="enabled: false;"
+            vr-mode-ui="enabled: true;"
             loading-screen="enabled: false;"
             arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
             id="scene"
@@ -30,13 +36,13 @@
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
             >
-                <a-image
+                <a-assets
                     src="assets/asset.gif"
                     scale="1 1 1"
                     class="clickable"
                     rotation="-90 0 0"
                     gesture-handler
-                ></a-image>
+                ></a-assets>
             </a-marker>
 
             <a-entity camera></a-entity>
