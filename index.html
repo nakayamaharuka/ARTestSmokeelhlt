@@ -5,12 +5,6 @@
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
-
-        <!-- shader -->
-        <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-        <script src="shader-grid-glitch.js"></script>
-
-        <link rel="stylesheet" href="style.css">
     </head>
 
     <body style="margin: 0; overflow: hidden;">
@@ -26,6 +20,11 @@
             embedded
             gesture-detector
         >
+            <a-assets>
+                <!-- GIFファイルを読み込み -->
+                <img id="animatedGif" src="assets/asset.gif" />
+            </a-assets>
+
             <a-marker
                 id="animated-marker"
                 type="pattern"
@@ -34,15 +33,15 @@
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
             >
-                <a-assets
-                    src="assets/asset.gif"
+                <!-- GIFを描画 -->
+                <a-image
+                    src="#animatedGif"
                     scale="1 1 1"
                     class="clickable"
                     rotation="-90 0 0"
                     gesture-handler
-                ></a-assets>
+                ></a-image>
             </a-marker>
 
             <a-entity camera></a-entity>
